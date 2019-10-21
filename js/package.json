@@ -1,0 +1,11 @@
+{
+  "name": "serve",
+  "version": "1.0.0",
+  "description": "this is start project",
+  "main": "n",
+  "scripts": {
+    "test": "npm run"
+  },
+  "author": "",
+  "license": "ISC"
+}
