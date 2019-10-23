@@ -1,0 +1,34 @@
+<link rel="stylesheet" href="../../css/back-to-top.css" />
+
+<div class="back-to-top"></div>
+
+<script>
+  window.onload = () => {
+    let backToTop = $(".back-to-top");
+    let timer = null;
+    let pageHight = document.documentElement.clientHeight;
+    console.log(pageHight);
+
+    window.onscroll = () => {
+      let scrollDistance = document.documentElement.scrollTop;
+      console.log(scrollDistance);
+      if (scrollDistance >= pageHight) {
+        backToTop.css("display", "block");
+      } else {
+        backToTop.css("display", "none");
+      }
+    };
+
+    $(".back-to-top").click(() => {
+      timer = setInterval(function() {
+        let allScroll = document.documentElement.scrollTop;
+        let speedTop = allScroll / 6;
+        document.documentElement.scrollTop = allScroll - speedTop;
+
+        if (allScroll == 0) {
+          clearInterval(timer);
+        }
+      }, 30);
+    });
+  };
+</script>

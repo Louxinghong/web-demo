@@ -1,0 +1,15 @@
+.back-to-top {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  bottom: 25px;
+  right: 20px;
+  background: url("../icons/back-to-top.png") left top;
+  display: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+.back-to-top:hover {
+  background: url("../icons/back-to-top.png") left -40px;
+}

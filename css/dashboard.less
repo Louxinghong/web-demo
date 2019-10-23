@@ -1,0 +1,122 @@
+@min-li: 250px;
+@max-li: 460px;
+
+.container {
+  transition: all 1.5s cubic-bezier(0.7, 0.3, 0.1, 1);
+
+  .thing-content {
+    position: relative;
+    background: #eeedec;
+    z-index: 1;
+
+    ul {
+      margin: 0;
+      padding: 0;
+      position: relative;
+      list-style-type: none;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
+
+      @media screen and (min-width: 600px) {
+        li {
+          width: @max-li;
+          height: @max-li;
+          line-height: @max-li;
+          font-size: 50px;
+        }
+      }
+
+      @media screen and (max-width: 599px) {
+        li {
+          width: @min-li;
+          height: @min-li;
+          line-height: @min-li;
+          font-size: 20px;
+        }
+      }
+
+      li {
+        margin-top: 30px;
+        border-radius: 5px 5px 25px 5px;
+        background: #cecccc;
+        box-shadow: 10px 10px 5px #888888;
+        text-align: center;
+        color: #ffffff;
+        opacity: 0.5;
+
+        &:nth-child(1) {
+          background: url("../icons/school.jpg") no-repeat;
+          background-size: 100% 100%;
+
+          &:hover {
+            animation: show 1s forwards;
+          }
+        }
+
+        &:nth-child(2) {
+          background: url("../icons/people.jpg") no-repeat;
+          background-size: 100% 100%;
+
+          &:hover {
+            animation: show 1s forwards;
+          }
+        }
+
+        &:nth-child(3) {
+          background: url("../icons/culture.jpg") no-repeat;
+          background-size: 100% 100%;
+
+          &:hover {
+            animation: show 1s forwards;
+          }
+        }
+
+        &:nth-child(4) {
+          background: url("../icons/teacher.jpg") no-repeat;
+          background-size: 100% 100%;
+
+          &:hover {
+            animation: show 1s forwards;
+          }
+        }
+
+        &:nth-child(5) {
+          background: url("../icons/service.jpg") no-repeat;
+          background-size: 100% 100%;
+
+          &:hover {
+            animation: show 1s forwards;
+          }
+        }
+
+        &:nth-child(6) {
+          background: url("../icons/emergency.jpg") no-repeat;
+          background-size: 100% 100%;
+
+          &:hover {
+            animation: show 1s forwards;
+          }
+        }
+
+        @keyframes show {
+          0% {
+            opacity: 0.5;
+          }
+          25% {
+            opacity: 0.625;
+          }
+          50% {
+            opacity: 0.75;
+          }
+          75% {
+            opacity: 0.875;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}

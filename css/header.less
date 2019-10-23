@@ -1,0 +1,83 @@
+@font-family: "Microsoft JhengHei", "PingFang-HK-Regular", "SimHei",
+  "Noto Sans HK", "Source Han Sans" !important;
+
+@media screen and (min-width: 600px) {
+  .header {
+    height: 620px;
+  }
+  .home-img {
+    height: 600px;
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .header {
+    height: 270px;
+  }
+  .home-img {
+    height: 250px;
+  }
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.header {
+  position: relative;
+  width: 100%;
+
+  .header-word {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    color: white;
+    font-size: 30px;
+    font-family: @font-family;
+  }
+  .home-img {
+    width: 100%;
+    background: url("../icons/home.jpg") no-repeat;
+    background-size: 100% 100%;
+  }
+
+  .left-top {
+    position: absolute;
+    width: 50%;
+    border-style: solid;
+    border-width: 96px 0 0 50vw;
+    border-color: transparent transparent transparent #ffffff;
+    left: 0;
+    margin-top: -96px;
+  }
+
+  .right-top {
+    position: absolute;
+    width: 50%;
+    border-style: solid;
+    border-width: 96px 50vw 0 0;
+    border-color: transparent #ffffff transparent transparent;
+    right: 0;
+    margin-top: -96px;
+  }
+
+  .left-bottom {
+    position: absolute;
+    width: 50%;
+    border-style: solid;
+    border-width: 116px 0 0 50vw;
+    border-color: transparent transparent transparent #eeedec;
+    left: 0;
+    margin-top: -96px;
+  }
+
+  .right-bottom {
+    position: absolute;
+    width: 50%;
+    border-style: solid;
+    border-width: 116px 50vw 0 0;
+    border-color: transparent #eeedec transparent transparent;
+    right: 0;
+    margin-top: -96px;
+  }
+}

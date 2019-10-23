@@ -1,0 +1,101 @@
+.container {
+  transition: all 1.5s cubic-bezier(0.7, 0.3, 0.1, 1);
+}
+.container .thing-content {
+  position: relative;
+  background: #eeedec;
+  z-index: 1;
+}
+.container .thing-content ul {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  list-style-type: none;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+@media screen and (min-width: 600px) {
+  .container .thing-content ul li {
+    width: 460px;
+    height: 460px;
+    line-height: 460px;
+    font-size: 50px;
+  }
+}
+@media screen and (max-width: 599px) {
+  .container .thing-content ul li {
+    width: 250px;
+    height: 250px;
+    line-height: 250px;
+    font-size: 20px;
+  }
+}
+.container .thing-content ul li {
+  margin-top: 30px;
+  border-radius: 5px 5px 25px 5px;
+  background: #cecccc;
+  box-shadow: 10px 10px 5px #888888;
+  text-align: center;
+  color: #ffffff;
+  opacity: 0.5;
+}
+.container .thing-content ul li:nth-child(1) {
+  background: url("../icons/school.jpg") no-repeat;
+  background-size: 100% 100%;
+}
+.container .thing-content ul li:nth-child(1):hover {
+  animation: show 1s forwards;
+}
+.container .thing-content ul li:nth-child(2) {
+  background: url("../icons/people.jpg") no-repeat;
+  background-size: 100% 100%;
+}
+.container .thing-content ul li:nth-child(2):hover {
+  animation: show 1s forwards;
+}
+.container .thing-content ul li:nth-child(3) {
+  background: url("../icons/culture.jpg") no-repeat;
+  background-size: 100% 100%;
+}
+.container .thing-content ul li:nth-child(3):hover {
+  animation: show 1s forwards;
+}
+.container .thing-content ul li:nth-child(4) {
+  background: url("../icons/teacher.jpg") no-repeat;
+  background-size: 100% 100%;
+}
+.container .thing-content ul li:nth-child(4):hover {
+  animation: show 1s forwards;
+}
+.container .thing-content ul li:nth-child(5) {
+  background: url("../icons/service.jpg") no-repeat;
+  background-size: 100% 100%;
+}
+.container .thing-content ul li:nth-child(5):hover {
+  animation: show 1s forwards;
+}
+.container .thing-content ul li:nth-child(6) {
+  background: url("../icons/emergency.jpg") no-repeat;
+  background-size: 100% 100%;
+}
+.container .thing-content ul li:nth-child(6):hover {
+  animation: show 1s forwards;
+}
+@keyframes show {
+  0% {
+    opacity: 0.5;
+  }
+  25% {
+    opacity: 0.625;
+  }
+  50% {
+    opacity: 0.75;
+  }
+  75% {
+    opacity: 0.875;
+  }
+  100% {
+    opacity: 1;
+  }
+}

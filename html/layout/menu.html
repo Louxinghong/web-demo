@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="../../css/menu.css" />
+<script src="../../js/jquery.min.js"></script>
+
+<div class="table-menu-img">
+  <span class="menu-leader"></span>
+</div>
+
+<div class="table-drawer">
+  <div class="drawer-title-close">
+    <div>目录</div>
+    <div class="close-drawer"></div>
+  </div>
+  <ul>
+    <li>
+      <span>学院概况</span>
+    </li>
+    <li>
+      <span>人才培养</span>
+    </li>
+    <li>
+      <span>校园文化</span>
+    </li>
+    <li>
+      <span>师资队伍</span>
+    </li>
+    <li>
+      <span>信息服务</span>
+    </li>
+    <li>
+      <span>应急电话</span>
+    </li>
+  </ul>
+</div>
+<div class="table-drawer-close"></div>
+
+<script>
+  $(".table-menu-img").click(() => {
+    $(".table-drawer").css("transform", "translate(0)");
+    $(".container").css("filter", "blur(10px)");
+    $("body").css("overflow-y", "hidden");
+    $(".table-drawer-close").css("display", "block");
+  });
+
+  $(".close-drawer").click(() => {
+    $(".table-drawer").css("transform", "translate(100%)");
+    $(".container").css("filter", "blur(0)");
+    $("body").css("overflow-y", "visible ");
+    $(".table-drawer-close").css("display", "none");
+  });
+
+  $(".table-drawer-close").click(() => {
+    $(".table-drawer").css("transform", "translate(100%)");
+    $(".container").css("filter", "blur(0)");
+    $("body").css("overflow-y", "visible ");
+    $(".table-drawer-close").css("display", "none");
+  });
+</script>
