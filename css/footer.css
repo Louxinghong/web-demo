@@ -21,6 +21,9 @@
   list-style-type: none;
   margin-top: 20px;
 }
+.footer .information ul:not(:last-child) li:not(:first-child) {
+  cursor: pointer;
+}
 .footer .information ul li:nth-child(1) {
   font-size: 20px;
   margin-bottom: 20px;

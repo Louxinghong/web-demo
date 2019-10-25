@@ -6,13 +6,75 @@
   color: #6d6c6c;
 }
 .container .introduction .title {
-  width: 80%;
+  width: 50%;
   margin: 0 20px;
   font-size: 18px;
   border-bottom: 5px solid #a7a5a5;
 }
-.container .introduction .content {
-  margin: 10px 20px 0;
+.container .introduction .tabs {
+  position: relative;
+  margin: 10px auto 0;
+  width: 95%;
+  height: 350px;
+}
+.container .introduction .tabs input {
+  opacity: 0;
+}
+.container .introduction .tabs input:checked + label {
+  background: #fff;
+  color: #6d6c6c;
+}
+.container .introduction .tabs label {
+  cursor: pointer;
+  background: -webkit-linear-gradient(#666666, #555555);
+  color: #eee;
+  padding: 10px;
+  float: left;
+  border-radius: 4px 4px 0 0;
+  margin-right: 1px;
+  zoom: 1;
+}
+.container .introduction .tabs label:hover {
+  background: -webkit-linear-gradient(#777777, #666666);
+}
+.container .introduction .tabs label::after {
+  display: block;
+  clear: both;
+  content: "";
+  visibility: hidden;
+  height: 0;
+}
+.container .introduction .tabs .panels {
+  position: relative;
+  background: #fff;
+  margin: 18px 0 0;
+  border-radius: 0 10px 10px 10px;
+  min-height: 300px;
+  width: 100%;
+  overflow-y: auto;
+}
+.container .introduction .tabs .panels .panel {
+  width: 100%;
+  opacity: 0;
+  position: absolute;
+  background: #fff;
+  border-radius: 0 10px 10px 10px;
+  padding: 4% 4% 0;
+  box-sizing: border-box;
+}
+.container .introduction .tabs .panels .panel table {
+  text-align: center;
+}
+.container .introduction .tabs .panels .panel h2 {
+  margin: 0;
+  font-family: Arial;
+}
+.container .introduction .tabs input:nth-of-type(1):checked ~ .panels .panel:first-child,
+.container .introduction .tabs input:nth-of-type(2):checked ~ .panels .panel:nth-child(2),
+.container .introduction .tabs input:nth-of-type(3):checked ~ .panels .panel:nth-child(3),
+.container .introduction .tabs input:nth-of-type(4):checked ~ .panels .panel:last-child {
+  opacity: 1;
+  transition: 0.3s;
 }
 .container .trans-logo {
   position: relative;
@@ -103,7 +165,13 @@
   position: relative;
   background: #eeedec;
   z-index: 1;
-  border-top: 5px solid #a7a5a5;
+}
+.container .thing-content .line {
+  position: relative;
+  height: 3px;
+  width: 95%;
+  margin: 0 auto;
+  background: #ffffff;
 }
 .container .thing-content ul {
   margin: 0;
