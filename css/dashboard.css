@@ -5,6 +5,21 @@
   background: #eeedec;
   color: #6d6c6c;
 }
+.container .introduction .banner {
+  position: relative;
+  width: 95%;
+  margin-left: 5%;
+  margin-bottom: 10px;
+  animation: moveBanner 7s linear 0s infinite;
+}
+@keyframes moveBanner {
+  from {
+    transform: translateX(95%);
+  }
+  to {
+    transform: translateX(-95%);
+  }
+}
 .container .introduction .title {
   width: 50%;
   margin: 0 20px;
@@ -94,7 +109,7 @@
   padding: 0;
   transform-style: preserve-3d;
   transform: rotateX(-30deg) rotateY(-55deg);
-  animation: transUl 5s linear 2s infinite;
+  animation: transUl 5s linear 0s infinite;
 }
 @keyframes transUl {
   from {
