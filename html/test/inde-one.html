@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/commen.css" />
+    <style>
+      #pTag {
+        margin: 0;
+        display: inline-block;
+        padding: 8px 10px;
+        border-radius: 5px;
+        /* width: 200px; */
+        color: #ffffff;
+        background-color: crimson;
+      }
+      #inputTag {
+        padding: 8px 10px;
+        border-radius: 5px;
+        border: 1px solid #dcdfe6;
+      }
+      .btn-change,
+      .show-window,
+      .calculate {
+        /* width: 120px; */
+        border: 1px solid #dcdfe6;
+        padding: 8px 10px;
+        border-radius: 5px;
+        color: #ffffff;
+        cursor: pointer;
+        background-color: #409eff;
+        box-sizing: border-box;
+        outline: 0;
+      }
+
+      .time {
+        margin-top: 10px;
+      }
+
+      .time-text {
+        padding: 8px 10px;
+        border-radius: 5px;
+        border: 1px solid #dcdfe6;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="pTag">This is test demo</p>
+    <input id="inputTag" type="text" value="This is test word" />
+    <button class="btn-change" onclick="onShow()">点击显示弹窗</button>
+    <button class="show-window" onclick="onShowWindow()">查看window内容</button>
+
+    <div class="time">
+      <input id="time-text" class="time-text" type="text" value="00:00:00" />
+      <button id="btn-calculate" class="calculate" onclick="handleTime()">
+        开始
+      </button>
+    </div>
+
+    <script>
+      var setTime;
+      function onShow() {
+        alert("123");
+        confirm("sometext");
+        var something = prompt("sometext", "");
+        console.log(something);
+        document.getElementById("pTag").innerText = "change test demo";
+        document.getElementById("inputTag").value = "change test word";
+      }
+
+      function onShowWindow() {
+        console.log(window.location, window.navigator);
+        // window.location.assign("https://www.runoob.com"); // 跳转页面
+      }
+
+      var handleTime = () => {
+        let text = document.getElementById("btn-calculate").innerText;
+        document.getElementById("btn-calculate").innerText =
+          text === "开始" ? "暂停" : "开始";
+
+        let count = 0,
+          hour = 0,
+          minute = 0,
+          second = 0;
+
+        if (document.getElementById("btn-calculate").innerText === "暂停") {
+          setTime = setInterval(function() {
+            count++;
+            if (count > 100) {
+              count = 0;
+              second++;
+            }
+            if (second >= 60) {
+              second = 0;
+              minute++;
+            }
+            if (minute >= 60) {
+              minute = 0;
+              hour++;
+            }
+
+            document.getElementById("time-text").value =
+              transTime(hour) +
+              ":" +
+              transTime(minute) +
+              ":" +
+              transTime(second) +
+              ":" +
+              transTime(count);
+          }, 10);
+        } else {
+          console.log("stop");
+          clearInterval(setTime);
+          document.getElementById("time-text").value = "00:00:00";
+        }
+      };
+
+      function transTime(val) {
+        return val < 10 ? "0" + val : val;
+      }
+    </script>
+  </body>
+</html>

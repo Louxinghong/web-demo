@@ -7,17 +7,16 @@
 }
 .container .introduction .banner {
   position: relative;
-  width: 95%;
-  margin-left: 5%;
+  width: 100%;
   margin-bottom: 10px;
   animation: moveBanner 7s linear 0s infinite;
 }
 @keyframes moveBanner {
   from {
-    transform: translateX(95%);
+    transform: translateX(100%);
   }
   to {
-    transform: translateX(-95%);
+    transform: translateX(-100%);
   }
 }
 .container .introduction .title {
