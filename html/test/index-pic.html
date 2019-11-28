@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      #box {
+        position: relative;
+        display: inline-block;
+        width: 400px;
+        height: 300px;
+        overflow: hidden;
+      }
+      ul {
+        position: relative;
+        width: 400px;
+        height: 300px;
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        flex-flow: row nowrap;
+      }
+
+      img {
+        width: 400px;
+        height: 300px;
+      }
+
+      ol {
+        position: absolute;
+        list-style-type: none;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        width: 50px;
+        top: 270px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      ol li:not(:last-child) {
+        width: 10px;
+        height: 10px;
+        border: 1px solid rgb(255, 255, 255);
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      .left,
+      .right {
+        position: absolute;
+        cursor: pointer;
+        top: 140px;
+        width: 25px;
+        height: 20px;
+        color: #ffffff;
+        opacity: 0.5;
+      }
+
+      .left {
+        background-color: rgba(172, 170, 170, 0.384);
+
+        text-align: center;
+      }
+
+      .right {
+        right: 0;
+      }
+
+      .left:hover,
+      .right:hover {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <ul id="ulTag">
+        <li>
+          <img src="../../icons/culture.jpg" alt="" />
+        </li>
+        <li>
+          <img src="../../icons/people.jpg" alt="" />
+        </li>
+        <li>
+          <img src="../../icons/school.jpg" alt="" />
+        </li>
+        <li>
+          <img src="../../icons/culture.jpg" alt="" />
+        </li>
+      </ul>
+
+      <ol id="olTag">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ol>
+      <div class="left" id="left">
+        <span>←</span>
+      </div>
+      <div class="right" id="right">
+        <span>→</span>
+      </div>
+    </div>
+
+    <script>
+      var box = document.getElementById('box')
+      var ulTag = document.getElementById('ulTag')
+      var btnLeft = document.getElementById('left')
+      var btnRight = document.getElementById('right')
+      var olTag = document.getElementById('olTag')
+      var olLi = olTag.getElementsByTagName('li')
+      var timer = setInterval(move, 2000)
+      var timer1 = null
+      var cur = 0
+      var target = 0
+      var moveTarget = 0
+      var speed = 0
+
+      buttonShow()
+
+      btnLeft.onclick = function() {
+        moveTarget = 400
+        target = moveTarget + cur
+        if (target >= 380) {
+          cur = -1200
+          target = -800
+        }
+        sport(target)
+        buttonShow()
+      }
+
+      btnRight.onclick = function() {
+        moveTarget = -400
+        target = moveTarget + cur
+        if (target <= -1200) {
+          cur = 0
+          target = -400
+        }
+        sport(target)
+        buttonShow()
+      }
+
+      for (let i = 0; i < olLi.length; i++) {
+        olLi[i].onclick = function() {
+          target = -(i * 400)
+          sport(target)
+          buttonShow()
+        }
+      }
+
+      function move() {
+        if (target <= -1200) {
+          cur = 0
+          target = -400
+        } else {
+          target -= 400
+        }
+        sport(target)
+        buttonShow()
+      }
+      function sport(data) {
+        clearInterval(timer1)
+        timer1 = setInterval(moveIn, 20)
+        function moveIn() {
+          if (cur == data) {
+            clearInterval(timer1)
+          } else {
+            speed = (data - cur) / 10
+            cur = cur + speed
+            ulTag.style.left = cur + 'px'
+          }
+        }
+      }
+
+      function buttonShow() {
+        var index = -Math.round(target / 400)
+        console.log(index)
+        index === 3 ? (index = 0) : index
+        for (let j = 0; j < olLi.length; j++) {
+          olLi[j].style.background = ''
+        }
+        olLi[index].style.background = '#ffffff'
+      }
+
+      box.onmouseover = function() {
+        clearInterval(timer)
+      }
+
+      box.onmouseout = function() {
+        timer = setInterval(move, 2000)
+      }
+    </script>
+  </body>
+</html>
