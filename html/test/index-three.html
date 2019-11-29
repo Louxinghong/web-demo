@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="../../js/flexible.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .logo {
+        margin: 0.5rem 0 0;
+        text-align: center;
+      }
+      .logo img {
+        width: 1.5rem;
+        height: 1.5rem;
+        color: crimson;
+      }
+      .logo p {
+        font-size: 0.2rem;
+        color: #bebdbd;
+      }
+      .container {
+        position: absolute;
+        width: 7rem;
+        height: 5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+      }
+      .account-content,
+      .password-content {
+        margin-top: 0.2rem;
+        width: 5rem;
+        height: 0.6rem;
+        border-bottom: 1px solid rgb(180, 180, 180);
+        display: flex;
+        align-items: center;
+      }
+      .tag {
+        display: inline-block;
+        font-size: 0.2rem;
+      }
+      .account,
+      .password {
+        width: 4.3rem;
+        height: 0.5rem;
+        border: none;
+        padding: 0.08rem 0.1rem;
+        outline: none;
+        font-size: 0.2rem;
+      }
+
+      .forget-content {
+        width: 5rem;
+      }
+      .forget {
+        float: right;
+        margin: 0.2rem 0 0.5rem;
+        border: none;
+        background-color: #ffffff;
+        color: rgb(14, 70, 255);
+        font-weight: 500;
+        outline: none;
+        cursor: pointer;
+      }
+      .btn-content {
+        width: 4.3rem;
+        display: flex;
+        flex-flow: column wrap;
+      }
+      .login,
+      .register {
+        padding: 0.12rem 0.1rem;
+        border: none;
+        border-radius: 0.05rem;
+        margin-top: 0.2rem;
+        outline: none;
+        cursor: pointer;
+      }
+      .login {
+        color: #ffffff;
+        background-color: crimson;
+      }
+
+      .register {
+        border: 1px solid rgb(177, 177, 177);
+        color: rgb(128, 128, 128);
+        background-color: #ffffff;
+      }
+      .register:hover {
+        background-color: #eeebebb6;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="logo">
+      <img src="../../icons/logo.jpg" alt="" />
+      <p>与百万用户共创美好生活</p>
+    </div>
+    <div class="container">
+      <div class="account-content">
+        <span class="tag">账号</span>
+        <input class="account" type="text" placeholder="请输入帐号" />
+      </div>
+      <div class="password-content">
+        <span class="tag">密码</span>
+        <input class="password" type="password" placeholder="请输入密码" />
+      </div>
+      <div class="forget-content">
+        <button class="forget">忘记密码？</button>
+      </div>
+      <div class="btn-content">
+        <button class="login">登录</button>
+        <button class="register">没有账号，前去注册</button>
+      </div>
+    </div>
+  </body>
+</html>
