@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="/js/jquery.min.js"></script>
+    <style>
+      .big {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+      }
+      .testone {
+        box-sizing: border-box;
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid black;
+      }
+      .testtwo {
+        box-sizing: content-box;
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <input name="apple" />
+      <input class="flower" name="flower" checked="checked" />
+
+      <select id="single">
+        <option>Single</option>
+        <option>Single2</option>
+      </select>
+
+      <input id="top" type="checkbox" />
+      <label for="top">top</label>
+
+      <ul>
+        <li>Hello</li>
+        <li>Hello</li>
+        <li>Hello</li>
+      </ul>
+      <div class="selected"></div>
+      <div class="container">
+        <div class="children"></div>
+      </div>
+      <div class="big"></div>
+
+      <p>Hello</p>
+      <p>2nd Paragraph</p>
+
+      <p class="pOne">hhhhhh</p>
+      <div class="divOne"></div>
+      <div class="divTwo"></div>
+      <button onclick="onChangeVal()">改变文本内容</button>
+
+      <div class="testone"></div>
+      <div class="testtwo"></div>
+    </div>
+
+    <script>
+      // console.log($("input:not(:checked)"));
+      $(document).ready(function() {
+        $.ajax({
+          type: "GET",
+          url: "https://cnodejs.org/api/v1/topics",
+          data: {
+            tab: "good"
+          },
+          success: res => {
+            // console.log(res);
+          }
+        });
+        onChangeVal = () => {
+          $(".flower").attr("value", "zhendejiade ");
+          $("#single").val("Single2");
+          $("input[type='checkbox']").prop("checked", true);
+          $("ul li:last").addClass(function() {
+            return "item-" + $(this).index();
+          });
+          $(".selected").toggleClass("selected");
+          $("div.children").toggleClass(function() {
+            if (
+              $(this)
+                .parent()
+                .is(".container")
+            ) {
+              return "yesChildren";
+            } else {
+              return "noChildren";
+            }
+          });
+          var p = $("p:last");
+          var offset = p.offset();
+          var position = p.position();
+          $("p:last").height(function(index, value) {
+            return value + 20;
+          });
+          console.log("left:" + offset.left + ", top:" + offset.top);
+          console.log("left:" + position.left + ", top:" + position.top);
+          console.log(
+            "innerHeight:" +
+              p.innerHeight() +
+              ", outerHegiht:" +
+              p.outerHeight()
+          );
+          // $("p:last").offset({ top: 10, left: 30 });
+          $(".pOne").appendTo($(".divOne"));
+        };
+        $(".big").click(function() {
+          $(this).css({
+            width: function(index, value) {
+              console.log(index, value);
+              return parseFloat(value) * 1.2;
+            }
+          });
+        });
+        $(".testone").click(function() {
+          $(".testone").height("200");
+          console.log($(".testone").height());
+        });
+        $(".testtwo").click(function() {
+          $(".testtwo").height("200");
+          console.log($(".testtwo").height());
+        });
+      });
+    </script>
+  </body>
+</html>
