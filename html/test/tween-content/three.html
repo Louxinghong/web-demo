@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        border-radius: 6px;
+        display: inline-block;
+        background-color: crimson;
+        font-size: 40px;
+        text-align: center;
+        line-height: 100px;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+
+    <script>
+      new TweenMax(".box", 3, {
+        x: 500,
+        ease: Bounce.easeOut,
+        repeat: 3, // 次数为加一次重复，-1为无限循环
+        repeatDelay: 1, // 重复播放之间的等待时间
+        yoyo: true, // 重复动画是否往返进行
+        yoyoEase: true, // false则返回时的缓动效果按照前进时的反转，true则与前进时相同，也可以设置特定的ease效果
+        delay: 3
+      });
+
+      const time = { score: 3 };
+      TweenMax.to(time, 3, {
+        score: 0,
+        ease: Power0.easeNone,
+        onUpdate: function() {
+          document.querySelector(".box").innerHTML = Math.ceil(time.score);
+        }
+      });
+    </script>
+  </body>
+</html>

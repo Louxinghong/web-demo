@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: aquamarine;
+      }
+      .box,
+      .box-two,
+      .box-three {
+        width: 50px;
+        height: 50px;
+        border-radius: 6px;
+        margin-top: 4px;
+        display: inline-block;
+      }
+      .box-two {
+        background-color: grey;
+      }
+
+      .box:nth-of-type(1) {
+        background-color: crimson;
+      }
+      .box:nth-of-type(2) {
+        background-color: orange;
+      }
+      .box:nth-of-type(3) {
+        background-color: yellow;
+      }
+      .box:nth-of-type(4) {
+        background-color: green;
+      }
+      .box:nth-of-type(5) {
+        background-color: blue;
+      }
+      .box:nth-of-type(6) {
+        background-color: blueviolet;
+      }
+      .box:nth-of-type(7) {
+        background-color: purple;
+      }
+      .box:nth-of-type(8) {
+        background-color: white;
+      }
+      .box:nth-of-type(9) {
+        background-color: black;
+      }
+
+      .nbox,
+      .nbox-two {
+        width: 50px;
+        height: 50px;
+        margin: 4px;
+        background-color: #6fb936;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+
+    <div class="box-two"></div>
+    <div class="box-two"></div>
+    <div class="box-two"></div>
+    <div class="box-two"></div>
+    <div class="box-two"></div>
+    <div class="box-two"></div>
+    <div class="box-two"></div>
+    <div class="box-two"></div>
+    <div class="box-two"></div>
+
+    <div class="box-three"></div>
+    <div class="box-three"></div>
+    <div class="box-three"></div>
+
+    <div class="nbox"></div>
+    <div class="nbox nbox-two"></div>
+
+    <script>
+      TweenMax.staggerTo(".box", 1, { rotation: 360, y: 100 }, 1);
+      TweenMax.staggerFrom(
+        ".box-two",
+        1,
+        {
+          cycle: {
+            backgroundColor: ["red", "white", "#00f"],
+            y: function(index) {
+              return index * 20;
+            }
+          }
+        },
+        1
+      );
+      TweenMax.staggerFromTo(
+        ".box-three",
+        1,
+        {
+          cycle: {
+            backgroundColor: ["red", "white", "#00f"],
+            y: function(index) {
+              return index * 10;
+            }
+          }
+        },
+        {
+          cycle: {
+            backgroundColor: ["green", "black", "orange"],
+            y: function() {
+              return Math.random() * 100 + 20;
+            }
+          }
+        },
+        1
+      );
+      TweenMax.set(".nbox-two", { transformPerspective: 300 });
+      TweenMax.to(".nbox", 3, { rotationY: 360, transformOrigin: "left top" });
+    </script>
+  </body>
+</html>
