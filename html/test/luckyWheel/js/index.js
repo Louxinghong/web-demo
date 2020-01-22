@@ -1,13 +1,14 @@
 var turnplate = {
   restaraunts: [
-    { code: 0, text: "一等奖" },
-    { code: 1, text: "二等奖" },
-    { code: 2, text: "三等奖" },
-    { code: 3, text: "四等奖" },
-    { code: 4, text: "五等奖" },
-    { code: 5, text: "六等奖" },
-    { code: 6, text: "七等奖" },
-    { code: 7, text: "八等奖" }
+    { code: 0, text: "要德" },
+    { code: 1, text: "巴邑" },
+    { code: 2, text: "聚义堂" },
+    { code: 3, text: "要德" },
+    { code: 4, text: "巴邑" },
+    { code: 5, text: "聚义堂" },
+    { code: 6, text: "要德" },
+    { code: 7, text: "巴邑" },
+    { code: 8, text: "聚义堂" }
   ], //大转盘奖品名称
   colors: ["#9C1EF4", "#FFEF50"], //大转盘奖品区块对应背景颜色
   outsideRadius: 192, //大转盘外圆的半径

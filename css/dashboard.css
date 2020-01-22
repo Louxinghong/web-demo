@@ -83,30 +83,10 @@
   margin: 0;
   font-family: Arial;
 }
-.container
-  .introduction
-  .tabs
-  input:nth-of-type(1):checked
-  ~ .panels
-  .panel:first-child,
-.container
-  .introduction
-  .tabs
-  input:nth-of-type(2):checked
-  ~ .panels
-  .panel:nth-child(2),
-.container
-  .introduction
-  .tabs
-  input:nth-of-type(3):checked
-  ~ .panels
-  .panel:nth-child(3),
-.container
-  .introduction
-  .tabs
-  input:nth-of-type(4):checked
-  ~ .panels
-  .panel:last-child {
+.container .introduction .tabs input:nth-of-type(1):checked ~ .panels .panel:first-child,
+.container .introduction .tabs input:nth-of-type(2):checked ~ .panels .panel:nth-child(2),
+.container .introduction .tabs input:nth-of-type(3):checked ~ .panels .panel:nth-child(3),
+.container .introduction .tabs input:nth-of-type(4):checked ~ .panels .panel:last-child {
   opacity: 1;
   transition: 0.3s;
 }
@@ -128,7 +108,7 @@
   padding: 0;
   transform-style: preserve-3d;
   transform: rotateX(-30deg) rotateY(-55deg);
-  animation: transUl 5s linear 0s infinite;
+  animation: transUl 5s linear 0s infinite normal;
 }
 @keyframes transUl {
   from {
@@ -157,6 +137,7 @@
 .container .trans-logo ul li:nth-child(3) {
   background: url("../icons/emergency.jpg") no-repeat;
   background-size: 100% 100%;
+  transform: translateZ(100px);
 }
 .container .trans-logo ul li:nth-child(4) {
   background: url("../icons/people.jpg") no-repeat;

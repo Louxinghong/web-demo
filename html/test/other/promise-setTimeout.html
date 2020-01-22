@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // const tasks = [];
+      // const output = i =>
+      //   new Promise(resolve => {
+      //     setTimeout(() => {
+      //       console.log(new Date(), i);
+      //       resolve();
+      //     }, 1000 * i);
+      //   });
+
+      // for (var i = 0; i < 5; i++) {
+      //   tasks.push(output(i));
+      // }
+
+      // Promise.all(tasks).then(() => {
+      //   setTimeout(() => {
+      //     console.log(new Date(), i);
+      //   }, 1000);
+      // });
+      const sleep = timeoutMs =>
+        new Promise(resolve => {
+          setTimeout(resolve, timeoutMs);
+        });
+      (async () => {
+        for (var i = 0; i < 5; i++) {
+          await sleep(1000);
+          console.log(new Date(), i);
+        }
+
+        await sleep(1000);
+        console.log(new Date(), i);
+      })();
+
+      const actions = {
+        1: ["processing", "IndexPage"],
+        2: ["processing", "IndexPage"],
+        3: ["processing", "IndexPage"],
+        4: ["processing", "IndexPage"],
+        5: ["processing", "IndexPage"],
+        6: ["processing", "IndexPage"],
+        7: ["processing", "IndexPage"]
+      };
+      console.log(actions[1]);
+      const actionsTwo = new Map([
+        [1, ["processing", "IndexPage"]],
+        [2, ["processing", "IndexPage"]],
+        [3, ["processing", "IndexPage"]],
+        [4, ["processing", "IndexPage"]],
+        [5, ["processing", "IndexPage"]],
+        [6, ["processing", "IndexPage"]],
+        ["default", ["default", "default"]]
+      ]);
+      console.log(actionsTwo.get(10) || actionsTwo.get("default"));
+
+      let add = (function() {
+        let now = 0;
+        return {
+          doAdd: function() {
+            now++;
+            console.log(now);
+          }
+        };
+      })();
+    </script>
+  </body>
+</html>
