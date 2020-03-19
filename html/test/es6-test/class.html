@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Animal {
+        constructor(name, color) {
+          this.name = name;
+          this.color = color;
+        }
+        toString() {
+          console.log("name:" + this.name + ",color:" + this.color);
+        }
+      }
+      var animal = new Animal("hanhan", "white");
+      animal.toString();
+      console.log(animal.hasOwnProperty("name"));
+      console.log(animal.hasOwnProperty("toString"));
+      console.log(animal.__proto__.hasOwnProperty("toString"));
+
+      class Hanhan extends Animal {
+        constructor(action) {
+          super("hanhan", "white");
+          this.action = action;
+        }
+
+        toString() {
+          console.log(super.toString());
+        }
+      }
+      var cat = new Hanhan("catch");
+      cat.toString();
+      console.log(cat instanceof Hanhan);
+      console.log(cat instanceof Animal);
+    </script>
+  </body>
+</html>
