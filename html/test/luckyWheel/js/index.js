@@ -8,20 +8,20 @@ var turnplate = {
     { code: 5, text: "聚义堂" },
     { code: 6, text: "要德" },
     { code: 7, text: "巴邑" },
-    { code: 8, text: "聚义堂" }
-  ], //大转盘奖品名称
+  ], // 大转盘奖品名称
   colors: ["#9C1EF4", "#FFEF50"], //大转盘奖品区块对应背景颜色
-  outsideRadius: 192, //大转盘外圆的半径
-  textRadius: 155, //大转盘奖品位置距离圆心的距离
-  insideRadius: 68, //大转盘内圆的半径
-  startAngle: 0, //开始角度
-  bRotate: false, //false:停止;ture:旋转
-  prizeCode: "", //获得奖品编号
+  outsideRadius: 192, // 大转盘外圆的半径
+  textRadius: 155, // 大转盘奖品位置距离圆心的距离
+  insideRadius: 68, // 大转盘内圆的半径
+  startAngle: 0, // 开始角度
+  bRotate: false, // false:停止;ture:旋转
+  prizeCode: "", // 获得奖品编号
   lottoTimes: 0,
-  lockBtn: false
+  lockBtn: false,
 };
 
-turnplate.colors = turnplate.restaraunts.map(function(n, i) {
+// 大转盘奖品区块对应背景颜色
+turnplate.colors = turnplate.restaraunts.map(function (n, i) {
   return turnplate.colors[i % 2];
 });
 
@@ -29,22 +29,21 @@ var canvas = document.getElementById("wheelcanvas");
 draw();
 function draw() {
   if (canvas.getContext) {
-    //根据奖品个数计算圆周角度
+    // 根据奖品个数计算圆周角度
     var arc = Math.PI / (turnplate.restaraunts.length / 2),
       ctx = canvas.getContext("2d"),
       width = 422,
       height = 422,
       pointX = 211,
       pointY = 211;
-    //在给定矩形内清空一个矩形
+    // 在给定矩形内清空一个矩形
     ctx.clearRect(0, 0, width, height);
-    //strokeStyle 属性设置或返回用于笔触的颜色、渐变或模式
+    // strokeStyle 属性设置或返回用于笔触的颜色、渐变或模式
     ctx.strokeStyle = "#FFBE04";
-    //font 属性设置或返回画布上文本内容的当前字体属性
+    // font 属性设置或返回画布上文本内容的当前字体属性
     ctx.font = "24px Microsoft YaHei";
     for (var i = 0; i < turnplate.restaraunts.length; i++) {
       var angle = turnplate.startAngle + i * arc;
-      console.log(turnplate.colors[i]);
       ctx.fillStyle = turnplate.colors[i];
       ctx.beginPath();
       ctx.arc(
@@ -56,11 +55,14 @@ function draw() {
         false
       );
       ctx.arc(pointX, pointY, turnplate.insideRadius, angle + arc, angle, true);
+      // 绘制路径
       ctx.stroke();
+      // 颜色填充
       ctx.fill();
       //锁画布(为了保存之前的画布状态)
       ctx.save();
 
+      // 分配下面需绘制的字体的颜色
       i % 2 === 0 ? (ctx.fillStyle = "#fff") : (ctx.fillStyle = "#f39802");
 
       var text = turnplate.restaraunts[i].text,
@@ -68,7 +70,7 @@ function draw() {
         splitArray = ["元", "云积分"],
         splitStr = "元";
 
-      //translate方法重新映射画布上的 (0,0) 位置
+      // translate方法重新映射画布上的 (0,0) 位置
       ctx.translate(
         pointX + Math.cos(angle + arc / 2) * turnplate.textRadius,
         pointY + Math.sin(angle + arc / 2) * turnplate.textRadius
@@ -122,7 +124,7 @@ function draw() {
   }
 }
 
-$("#pointer").click(function() {
+$("#pointer").click(function () {
   if (turnplate.bRotate) return;
   turnplate.bRotate = !turnplate.bRotate;
   onRotate();
@@ -152,9 +154,9 @@ function onRotate() {
     angle: 0,
     animateTo: angles + 360 * 5,
     duration: 8000,
-    callback: function() {
+    callback: function () {
       alert("恭喜获得" + code + "等奖");
       turnplate.bRotate = !turnplate.bRotate;
-    }
+    },
   });
 }
