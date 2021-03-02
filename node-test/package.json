@@ -8,8 +8,11 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "cheerio": "^1.0.0-rc.5",
-    "request": "^2.88.2"
+    "node-schedule": "^2.0.0",
+    "request": "^2.88.2",
+    "superagent": "^6.1.0"
   }
 }
