@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>飞行小游戏</title>
+    <script src="../js/flexible.js"></script>
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+  </head>
+  <body>
+    <div class="home-container">
+      <div class="digital-information">
+        <div class="left-info">
+          <p id="time-remaining"></p>
+          <p id="target-score"></p>
+          <p>
+            <img
+              id="music-icon"
+              class="music-icon"
+              src="../img/music-on.png"
+              alt=""
+            />
+            <audio
+              id="music"
+              controls="controls"
+              preload
+              loop="loop"
+              src="../audio/JY.mp3"
+              hidden
+            ></audio>
+          </p>
+        </div>
+        <div class="right-info">
+          <p id="current-score"></p>
+        </div>
+      </div>
+
+      <img id="test-img" class="test-img" src="../img/fly.gif" alt="" />
+
+      <div class="btn-content">
+        <button id="btn-start" class="btn-start">开始</button>
+        <button id="btn-fly" class="btn-fly" value="暂停"></button>
+        <span id="end-word" class="end-word">游戏结束</span>
+      </div>
+    </div>
+
+    <script src="../js/index.js"></script>
+  </body>
+</html>

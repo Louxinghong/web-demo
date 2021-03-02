@@ -1,0 +1,61 @@
+.container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.digital-information {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.2rem;
+  font-size: 0.5rem;
+}
+
+.music-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.btn-content {
+  position: fixed;
+  width: 100%;
+  bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-fly {
+  width: 1.5rem;
+  height: 1.5rem;
+  background: url(../img/fuel.png) no-repeat;
+  background-size: 100% 100%;
+  outline: none;
+  border: none;
+}
+
+.test-img {
+  width: 100%;
+}
+
+/* .test-img {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  background: url(../img/web_heart_animation.png) 0 0 no-repeat;
+  background-size: 2900%;
+  animation: test-img-run steps(28) 0.8s infinite both;
+}
+
+.stop {
+  animation-play-state: paused;
+}
+
+@keyframes test-img-run {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+} */
