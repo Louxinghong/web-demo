@@ -41,20 +41,29 @@ function filter(html) {
     allFilms.forEach((item, index) => {
       const picUrl = item.pic;
 
-      https.get(picUrl, function (res) {
-        res.setEncoding("binary");
-        let str = "";
-        res.on("data", function (chunk) {
-          str += chunk;
-        });
-        res.on("end", function () {
-          fs.writeFile(`./images/${index}.png`, str, "binary", function (err) {
-            if (!err) {
-              console.log(`第${index}张图片下载成功`);
-            }
+      if (picUrl) {
+        https.get(picUrl, function (res) {
+          res.setEncoding("binary");
+          let str = "";
+          res.on("data", function (chunk) {
+            str += chunk;
+          });
+          res.on("end", function () {
+            fs.writeFile(
+              `./doubanImages/${index}.png`,
+              str,
+              "binary",
+              function (err) {
+                if (!err) {
+                  console.log(`第${index}张图片下载成功`);
+                } else {
+                  console.log(err);
+                }
+              }
+            );
           });
         });
-      });
+      }
     });
   });
 }
